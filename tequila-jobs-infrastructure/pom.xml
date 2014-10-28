@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.micsa</groupId>
 	<artifactId>tequila-jobs-infrastructure</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
     <version>${parent.version}</version>
 	
 </project>

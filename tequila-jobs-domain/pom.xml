@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.micsa</groupId>
 	<artifactId>tequila-jobs-domain</artifactId>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
     <parent>
         <groupId>ro.micsa</groupId>
@@ -84,6 +84,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.easytesting</groupId>
