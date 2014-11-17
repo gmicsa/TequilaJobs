@@ -2,7 +2,56 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ro.micsa</groupId>
 	<artifactId>tequila-jobs-presentation</artifactId>
-	<packaging>jar</packaging>
-    <version>${parent.version}</version>
-	
+	<packaging>war</packaging>
+
+    <parent>
+        <groupId>ro.micsa</groupId>
+        <artifactId>tequila-jobs</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <freemarker.version>2.3.21</freemarker.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>${freemarker.version}</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>tequila-jobs-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <warName>tequila-jobs-${project.version}</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

@@ -15,7 +15,7 @@ import java.util.Iterator;
 import static org.fest.assertions.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/persistanceSpringBeans.xml", "classpath:spring/propertiesSpringBeans.xml"})
+@ContextConfiguration(locations = {"classpath:spring/persistenceSpringBeans.xml", "classpath:spring/propertiesSpringBeans.xml"})
 @Transactional
 public class JobRepositoryTest {
 
