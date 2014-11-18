@@ -10,7 +10,7 @@
 
     <mvc:annotation-driven/>
 
-    <import resource="classpath:spring/*SpringBeans.xml"/>
+    <import resource="classpath*:spring/*SpringBeans.xml"/>
 
 
     <bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
