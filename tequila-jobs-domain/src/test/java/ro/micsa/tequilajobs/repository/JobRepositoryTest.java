@@ -14,10 +14,7 @@ import java.util.Iterator;
 
 import static org.fest.assertions.api.Assertions.assertThat;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:spring/persistenceSpringBeans.xml", "classpath:spring/propertiesSpringBeans.xml"})
-@Transactional
-public class JobRepositoryTest {
+public class JobRepositoryTest extends AbstractRepositoryTest{
 
     public static final Job JOB_1 = new Job("job1");
     public static final Job JOB_2 = new Job("job2");

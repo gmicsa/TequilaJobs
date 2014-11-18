@@ -5,6 +5,11 @@
         <title>Tequila Jobs</title>
     </head>
     <body>
-        <h1>We are hiring for this position: ${jobName}</h1>
+        <h1>Job list:</h1>
+        <ul>
+            <#list jobs as job>
+                <li>${job.title}</li>
+            </#list>
+        </ul>
     </body>
 </html>
