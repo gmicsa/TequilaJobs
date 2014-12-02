@@ -14,7 +14,7 @@ import javax.transaction.Transactional;
 public abstract class AbstractRepositoryTest {
 
     @BeforeClass
-    public static void setUp() throws Exception {
+    public static void setUpRepositoryTests() throws Exception {
         System.setProperty("tequilaEnv", "test");
     }
 }
