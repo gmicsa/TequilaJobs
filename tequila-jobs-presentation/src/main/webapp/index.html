@@ -15,7 +15,7 @@
         <div class="well">
             <h2>Available jobs</h2>
             <div><button type="button" class="btn btn-primary">Add job</button></div>
-            <div class="panel panel-primary" ng-repeat="job in jobs" style="display: inline-block; margin: 10px;">
+            <div id="jobpanel_{{job.id}}" class="panel panel-primary" ng-repeat="job in jobs" style="display: inline-block; margin: 10px;">
                 <div class="panel-heading">{{job.title}}@{{job.company.name}}</div>
                 <div class="panel-body">
                     {{job.description}}

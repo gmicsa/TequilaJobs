@@ -1,4 +1,6 @@
-package ro.micsa.tequilajobs.domain;
+package ro.micsa.tequilajobs.domain.builder;
+
+import ro.micsa.tequilajobs.domain.*;
 
 import java.util.Date;
 

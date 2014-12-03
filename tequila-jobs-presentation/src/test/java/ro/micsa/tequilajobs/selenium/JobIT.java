@@ -1,34 +1,34 @@
-package ro.micsa.tequilajobs.repository;
-
+package ro.micsa.tequilajobs.selenium;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import ro.micsa.tequilajobs.domain.Company;
 import ro.micsa.tequilajobs.domain.Job;
 import ro.micsa.tequilajobs.domain.builder.JobBuilder;
-
-import java.util.Iterator;
+import ro.micsa.tequilajobs.repository.CompanyRepository;
+import ro.micsa.tequilajobs.repository.JobRepository;
+import ro.micsa.tequilajobs.selenium.infrastructure.AbstractSelenium;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static org.fest.assertions.api.Assertions.assertThat;
 
-public class JobRepositoryTest extends AbstractRepositoryTest{
+public class JobIT extends AbstractSelenium {
 
-    @Autowired
     private JobRepository jobRepository;
-
-    @Autowired
     private CompanyRepository companyRepository;
 
     private Job javaDeveloper, dotNetDeveloper;
-
     private Company companyCegeka;
 
     @Before
-    public void setUp() throws Exception {
-        companyCegeka =  companyRepository.findByName("Cegeka Romania");
+    public void setUp(){
+        jobRepository = getBean(JobRepository.class);
+        companyRepository = getBean(CompanyRepository.class);
 
+        companyCegeka =  companyRepository.findByName("Cegeka Romania");
+    }
+
+    @Test
+    public void given2JobsInDatabase_whenShowingHomePage_thenThese2JobsAreDisplayed(){
         javaDeveloper = JobBuilder
                 .aJob()
                 .withTitle("Java developer")
@@ -39,17 +39,13 @@ public class JobRepositoryTest extends AbstractRepositoryTest{
                 .withTitle(".NET developer")
                 .withCompany(companyCegeka)
                 .build();
-    }
 
-    @Test
-    public void findAll_given2JobsInDatabase_then2JobsAreReturned(){
         jobRepository.save(newArrayList(javaDeveloper, dotNetDeveloper));
 
-        Iterable<Job> jobs = jobRepository.findAll();
+        goToHomePage();
 
-        assertThat(jobs).hasSize(2);
-        Iterator<Job> jobIterator = jobs.iterator();
-        assertThat(jobIterator.next()).isEqualTo(javaDeveloper);
-        assertThat(jobIterator.next()).isEqualTo(dotNetDeveloper);
+        assertPageContains("Available jobs");
+        assertElementWithIdVisible("jobpanel_" + javaDeveloper.getId());
+        assertElementWithIdVisible("jobpanel_" + dotNetDeveloper.getId());
     }
 }
