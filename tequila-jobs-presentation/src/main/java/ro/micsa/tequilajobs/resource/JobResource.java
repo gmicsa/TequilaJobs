@@ -12,7 +12,7 @@ public class JobResource {
     @Autowired
     private JobRepository jobRepository;
 
-    @RequestMapping(value = "/jobs", headers = "Accept=application/json")
+    @RequestMapping(value = "/jobs")
     public Iterable<Job> jobs() {
         return jobRepository.findAll();
     }

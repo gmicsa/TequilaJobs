@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="jobApp" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tequila Jobs</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/lib/bootstrap.min.js"></script>
+    <script src="js/lib/angular.js"></script>
+    <script src="js/jobApp.js"></script>
+</head>
+    <body ng-controller="JobController">
+        <div class="well">
+            <h2>Available jobs</h2>
+            <div><button type="button" class="btn btn-primary">Add job</button></div>
+            <div class="panel panel-primary" ng-repeat="job in jobs" style="display: inline-block; margin: 10px;">
+                <div class="panel-heading">{{job.title}}@{{job.company.name}}</div>
+                <div class="panel-body">
+                    {{job.description}}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
