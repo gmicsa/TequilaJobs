@@ -112,6 +112,13 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-servlet-api</artifactId>
+            <version>${tomcat.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
@@ -132,6 +139,7 @@
                 <version>2.4</version>
                 <configuration>
                     <warName>tequila-jobs-${project.version}</warName>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
         </plugins>
@@ -152,6 +160,7 @@
                         <artifactId>maven-surefire-plugin</artifactId>
                         <executions>
                             <execution>
+                                <!--http://maven.apache.org/surefire/maven-surefire-plugin/examples/class-loading.html-->
                                 <id>surefire-it</id>
                                 <phase>integration-test</phase>
                                 <goals>

@@ -6,6 +6,9 @@ import org.apache.catalina.startup.Tomcat;
 import org.springframework.context.ApplicationContext;
 
 import java.io.File;
+import java.net.URL;
+import java.net.URLClassLoader;
+import java.util.Enumeration;
 
 public class TomcatEmbedded {
 
@@ -54,7 +57,7 @@ public class TomcatEmbedded {
     }
 
     private ApplicationContext getApplicationContext(Context serverContext){
-        return (ApplicationContext) serverContext.getServletContext().getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.restDispatcherServlet");
+        return (ApplicationContext) serverContext.getServletContext().getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.DispatcherServlet");
     }
 
     protected ApplicationContext getApplicationContext() {
