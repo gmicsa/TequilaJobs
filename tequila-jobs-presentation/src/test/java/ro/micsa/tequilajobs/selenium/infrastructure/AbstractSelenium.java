@@ -44,7 +44,7 @@ public abstract class AbstractSelenium {
 
     private void cleanupDatabase() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(getBean(DataSource.class));
-        jdbcTemplate.execute("DELETE from job");
+        jdbcTemplate.execute("DELETE from Job");
     }
 
     protected void waitForAngularHttpRequests() {

@@ -1,5 +1,5 @@
-INSERT INTO company (name) VALUES ('Cegeka Romania');
-INSERT INTO company (name) VALUES ('Google');
-INSERT INTO company (name) VALUES ('Microsoft');
-INSERT INTO company (name) VALUES ('IBM');
-INSERT INTO company (name) VALUES ('Adobe');
+INSERT INTO Company (name) VALUES ('Cegeka Romania');
+INSERT INTO Company (name) VALUES ('Google');
+INSERT INTO Company (name) VALUES ('Microsoft');
+INSERT INTO Company (name) VALUES ('IBM');
+INSERT INTO Company (name) VALUES ('Adobe');
