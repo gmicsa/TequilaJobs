@@ -4,6 +4,8 @@
 
 *.class
 
+*.iml
+
 # Package Files #
 *.jar
 *.war
