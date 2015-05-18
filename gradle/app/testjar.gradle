@@ -1,0 +1,12 @@
+task createTestJar (type: Jar, dependsOn: testClasses) {
+    from sourceSets.test.output
+    classifier = 'test'
+}
+
+configurations {
+    testJar
+}
+
+artifacts {
+    testJar createTestJar
+}

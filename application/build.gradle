@@ -1,0 +1,6 @@
+dependencies {
+    compile project(':infrastructure')
+    compile project(':domain')
+    testCompile project(path: ':infrastructure', configuration: 'testJar')
+    testCompile project(path: ':domain', configuration: 'testJar')
+}

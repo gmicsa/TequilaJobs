@@ -1,0 +1,9 @@
+version = '1.0.0.' + numberOfCommits() + '-' + timestamp();
+
+def numberOfCommits() {
+	return 'git rev-list HEAD --count'.execute().text.trim()
+}
+
+def timestamp() {
+	return new Date().format("yyyyMMdd-HHmmss")
+}

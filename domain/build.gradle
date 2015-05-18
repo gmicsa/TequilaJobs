@@ -1,0 +1,20 @@
+dependencies {
+    compile project(':infrastructure')
+    compile "org.springframework:spring-beans:$springVersion"
+    compile "org.springframework:spring-core:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework:spring-jdbc:$springVersion"
+    compile "org.springframework:spring-orm:$springVersion"
+    compile "org.springframework:spring-tx:$springVersion"
+    compile "org.springframework.data:spring-data-jpa:1.8.0.RELEASE"
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile "mysql:mysql-connector-java:$mysqlConnectorVersion"
+    compile "com.h2database:h2:1.4.187"
+    compile "com.zaxxer:HikariCP:2.3.7"
+
+    runtime "org.slf4j:slf4j-jdk14:1.5.6"
+
+    testCompile project(path: ':infrastructure', configuration: 'testJar')
+}

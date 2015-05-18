@@ -1,0 +1,60 @@
+apply plugin: 'war'
+apply from: "$rootDir/gradle/app/versioning.gradle"
+
+ext.freemarkerVersion='2.3.22'
+ext.springSecurityVersion='4.0.1.RELEASE'
+ext.seleniumVersion='2.45.0'
+ext.tomcatVersion='8.0.22'
+
+dependencies {
+    compile project(':infrastructure')
+    compile project(':domain')
+    compile project(':application')
+
+    compile "org.springframework:spring-web:$springVersion"
+    compile "org.springframework:spring-webmvc:$springVersion"
+    compile "org.springframework:spring-context-support:$springVersion"
+    compile "org.springframework.security:spring-security-web:$springSecurityVersion"
+    compile "org.springframework.security:spring-security-config:$springSecurityVersion"
+    compile "org.freemarker:freemarker:$freemarkerVersion"
+    compile "com.fasterxml.jackson.core:jackson-core:2.5.3"
+    compile "com.fasterxml.jackson.core:jackson-databind:2.5.3"
+    compile "org.codehaus.jackson:jackson-mapper-asl:1.9.13"
+
+    testCompile project(path: ':infrastructure', configuration: 'testJar')
+    testCompile project(path: ':domain', configuration: 'testJar')
+    testCompile project(path: ':application', configuration: 'testJar')
+
+    testCompile "org.seleniumhq.selenium:selenium-firefox-driver:$seleniumVersion"
+    testCompile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+    testCompile "org.apache.tomcat:tomcat-catalina:$tomcatVersion"
+    testCompile "org.apache.tomcat:tomcat-jasper:$tomcatVersion"
+
+    testCompile "org.apache.tomcat:tomcat-jasper:$tomcatVersion"
+
+    provided "org.apache.tomcat:tomcat-servlet-api:$tomcatVersion"
+}
+
+task createBuildInfoFile << {
+    def buildInfoFile = new File("$buildDir/build-info.properties")
+    Properties properties = new Properties()
+    properties.put('version', project.version.toString())
+    properties.store(buildInfoFile.newWriter(), null)
+}
+
+war {
+    dependsOn createBuildInfoFile
+
+    from(buildDir) {
+        include 'build-info.properties'
+        into('WEB-INF/classes')
+    }
+}
+
+publishing {
+    publications {
+        mavenWeb(MavenPublication) {
+            from components.web
+        }
+    }
+}

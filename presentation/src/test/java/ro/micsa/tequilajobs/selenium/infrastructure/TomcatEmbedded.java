@@ -21,7 +21,7 @@ public class TomcatEmbedded {
         server = new Tomcat();
         server.setPort(PORT);
         try {
-            Context serverContext = server.addWebapp(APP_CONTEXT, new File(getProjectPrefix() + WEBAPP_DIR_LOCATION).getAbsolutePath());
+            Context serverContext = server.addWebapp(APP_CONTEXT, new File(WEBAPP_DIR_LOCATION).getAbsolutePath());
             server.start();
             registerShutdown();
             applicationContext = getApplicationContext(serverContext);
@@ -42,15 +42,6 @@ public class TomcatEmbedded {
                 }
             }
         });
-    }
-
-    private String getProjectPrefix() {
-        String runningDirectory = new File(".").getAbsolutePath();
-        if(runningDirectory.contains("tequila-jobs-presentation")){
-            return "";
-        }else {
-            return "tequila-jobs-presentation/";
-        }
     }
 
     private ApplicationContext getApplicationContext(Context serverContext){

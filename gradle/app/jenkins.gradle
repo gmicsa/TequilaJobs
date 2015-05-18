@@ -1,0 +1,13 @@
+task touchTestResultToMakeJenkinsHappy{
+        inputs.files test.outputs.files
+        doLast{
+            try {
+                def timestamp = System.currentTimeMillis()
+                testResultsDir.eachFile {
+                    it.lastModified = timestamp
+                }
+            } catch (java.lang.Throwable e) {}
+        }
+}
+
+build.dependsOn(touchTestResultToMakeJenkinsHappy)

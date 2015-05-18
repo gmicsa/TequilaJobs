@@ -1,0 +1,36 @@
+apply plugin: 'idea'
+
+sourceSets {
+    testAcceptance {
+        java.srcDir file('src/testAcceptance/java')
+        resources.srcDir file('src/testAcceptance/resources')
+    }
+}
+
+dependencies {
+    testAcceptanceCompile sourceSets.main.output
+    testAcceptanceCompile configurations.testCompile
+    testAcceptanceCompile sourceSets.test.output
+    testAcceptanceRuntime configurations.testRuntime
+}
+
+task testAcceptance(type: Test, dependsOn: testClasses) {
+    group 'Verification'
+    description 'Runs the acceptance tests.'
+    testClassesDir = sourceSets.testAcceptance.output.classesDir
+    classpath = sourceSets.testAcceptance.runtimeClasspath
+    binResultsDir = file("$buildDir/testAcceptance-results/binary/testAcceptance")
+    reports.junitXml.destination = "$buildDir/testAcceptance-results"
+    reports.html.destination = "$buildDir/reports/testAcceptance"
+    systemProperties['jar.path'] = jar.archivePath
+}
+
+idea {
+    module {
+        //and hint to mark some of existing source dirs as test sources
+        testSourceDirs  += file('src/testAcceptance/java')
+        testSourceDirs  += file('src/testAcceptance/resources')
+        scopes.TEST.plus += [ configurations.testAcceptanceCompile ]
+
+    }
+}

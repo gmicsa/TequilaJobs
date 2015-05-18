@@ -1,0 +1,38 @@
+apply plugin: 'idea'
+
+sourceSets {
+    testIntegration {
+        java.srcDir file('src/testIntegration/java')
+        resources.srcDir file('src/testIntegration/resources')
+    }
+}
+
+dependencies {
+    testIntegrationCompile sourceSets.main.output
+    testIntegrationCompile configurations.testCompile
+    testIntegrationCompile sourceSets.test.output
+    testIntegrationRuntime configurations.testRuntime
+}
+
+task testIntegration(type: Test, dependsOn: testClasses) {
+    group 'Verification'
+    description 'Runs the integration tests.'
+    testClassesDir = sourceSets.testIntegration.output.classesDir
+    classpath = sourceSets.testIntegration.runtimeClasspath
+    binResultsDir = file("$buildDir/testIntegration-results/binary/testIntegration")
+    reports.junitXml.destination = "$buildDir/testIntegration-results"
+    reports.html.destination = "$buildDir/reports/testIntegration"
+    systemProperties['jar.path'] = jar.archivePath
+}
+
+check.dependsOn testIntegration
+
+idea {
+    module {
+        //and hint to mark some of existing source dirs as test sources
+        testSourceDirs  += file('src/testIntegration/java')
+        testSourceDirs  += file('src/testIntegration/resources')
+        scopes.TEST.plus += [ configurations.testIntegrationCompile ]
+
+    }
+}
