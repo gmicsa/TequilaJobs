@@ -11,7 +11,7 @@ import ro.micsa.tequilajobs.domain.builder.JobBuilder;
 import java.util.Iterator;
 
 import static com.google.common.collect.Lists.newArrayList;
-import static org.fest.assertions.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class JobRepositoryTest extends AbstractRepositoryTest{
 
