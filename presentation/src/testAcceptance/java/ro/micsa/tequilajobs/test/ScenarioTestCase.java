@@ -1,4 +1,4 @@
-package ro.micsa.tequilajobs.selenium.infrastructure;
+package ro.micsa.tequilajobs.test;
 
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -11,12 +11,13 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.jdbc.core.JdbcTemplate;
+import ro.micsa.tequilajobs.tomcat.TomcatEmbedded;
 
 import javax.sql.DataSource;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public abstract class AbstractSelenium {
+public abstract class ScenarioTestCase {
 
     public static final int TIME_OUT_IN_SECONDS = 30;
     protected static WebDriver driver;

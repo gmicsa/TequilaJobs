@@ -1,4 +1,4 @@
-package ro.micsa.tequilajobs.selenium.infrastructure;
+package ro.micsa.tequilajobs.tomcat;
 
 import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
@@ -48,7 +48,7 @@ public class TomcatEmbedded {
         return (ApplicationContext) serverContext.getServletContext().getAttribute("org.springframework.web.servlet.FrameworkServlet.CONTEXT.DispatcherServlet");
     }
 
-    protected ApplicationContext getApplicationContext() {
+    public ApplicationContext getApplicationContext() {
         return applicationContext;
     }
 

@@ -1,17 +1,17 @@
-package ro.micsa.tequilajobs.selenium;
+package ro.micsa.tequilajobs.job;
 
 import org.junit.Before;
 import org.junit.Test;
 import ro.micsa.tequilajobs.domain.Company;
 import ro.micsa.tequilajobs.domain.Job;
 import ro.micsa.tequilajobs.domain.builder.JobBuilder;
+import ro.micsa.tequilajobs.test.ScenarioTestCase;
 import ro.micsa.tequilajobs.repository.CompanyRepository;
 import ro.micsa.tequilajobs.repository.JobRepository;
-import ro.micsa.tequilajobs.selenium.infrastructure.AbstractSelenium;
 
 import static com.google.common.collect.Lists.newArrayList;
 
-public class JobIT extends AbstractSelenium {
+public class JobScenarioTest extends ScenarioTestCase {
 
     private JobRepository jobRepository;
     private CompanyRepository companyRepository;
