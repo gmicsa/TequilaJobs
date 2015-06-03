@@ -17,7 +17,7 @@ public class TomcatEmbedded {
     private ApplicationContext applicationContext;
 
     public void start(){
-        System.setProperty("tequilaEnv", "test");
+        System.setProperty("spring.profiles.active", "test");
         server = new Tomcat();
         server.setPort(PORT);
         try {

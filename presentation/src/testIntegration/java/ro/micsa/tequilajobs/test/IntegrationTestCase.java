@@ -16,16 +16,12 @@ import ro.micsa.tequilajobs.config.RestConfig;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(classes={RestConfig.class}, loader=AnnotationConfigWebContextLoader.class)
-//@ActiveProfiles("test")
+@ActiveProfiles("test")
 public abstract class IntegrationTestCase {
 
     @Autowired
     protected WebApplicationContext webApplicationContext;
     protected MockMvc mockMvc;
-
-    static{
-        System.setProperty("tequilaEnv", "test");
-    }
 
     @Before
     public void before() {
