@@ -6,7 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import ro.micsa.tequilajobs.domain.Company;
 import ro.micsa.tequilajobs.domain.Job;
-import ro.micsa.tequilajobs.domain.builder.JobBuilder;
+import ro.micsa.tequilajobs.repository.builder.JobTestBuilder;
 
 import java.util.Iterator;
 
@@ -29,12 +29,12 @@ public class JobRepositoryTest extends AbstractRepositoryTest{
     public void setUp() throws Exception {
         companyCegeka =  companyRepository.findByName("Cegeka Romania");
 
-        javaDeveloper = JobBuilder
+        javaDeveloper = JobTestBuilder
                 .aJob()
                 .withTitle("Java developer")
                 .withCompany(companyCegeka)
                 .build();
-        dotNetDeveloper = JobBuilder
+        dotNetDeveloper = JobTestBuilder
                 .aJob()
                 .withTitle(".NET developer")
                 .withCompany(companyCegeka)

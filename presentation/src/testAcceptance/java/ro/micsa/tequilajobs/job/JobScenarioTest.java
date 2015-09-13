@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import ro.micsa.tequilajobs.domain.Company;
 import ro.micsa.tequilajobs.domain.Job;
-import ro.micsa.tequilajobs.domain.builder.JobBuilder;
+import ro.micsa.tequilajobs.repository.builder.JobTestBuilder;
 import ro.micsa.tequilajobs.test.ScenarioTestCase;
 import ro.micsa.tequilajobs.repository.CompanyRepository;
 import ro.micsa.tequilajobs.repository.JobRepository;
@@ -29,12 +29,12 @@ public class JobScenarioTest extends ScenarioTestCase {
 
     @Test
     public void given2JobsInDatabase_whenShowingHomePage_thenThese2JobsAreDisplayed(){
-        javaDeveloper = JobBuilder
+        javaDeveloper = JobTestBuilder
                 .aJob()
                 .withTitle("Java developer")
                 .withCompany(companyCegeka)
                 .build();
-        dotNetDeveloper = JobBuilder
+        dotNetDeveloper = JobTestBuilder
                 .aJob()
                 .withTitle(".NET developer")
                 .withCompany(companyCegeka)

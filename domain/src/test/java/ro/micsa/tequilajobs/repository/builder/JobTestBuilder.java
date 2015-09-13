@@ -1,10 +1,10 @@
-package ro.micsa.tequilajobs.domain.builder;
+package ro.micsa.tequilajobs.repository.builder;
 
 import ro.micsa.tequilajobs.domain.*;
 
 import java.util.Date;
 
-public class JobBuilder {
+public class JobTestBuilder {
     private Long id;
     private String title = "Senior Java Developer";
     private Company company;
@@ -25,104 +25,104 @@ public class JobBuilder {
     private Date validUntil =  new Date();
     private JobState state = JobState.OPEN;
 
-    private JobBuilder() {
+    private JobTestBuilder() {
     }
 
-    public static JobBuilder aJob() {
-        return new JobBuilder();
+    public static JobTestBuilder aJob() {
+        return new JobTestBuilder();
     }
 
-    public JobBuilder withId(Long id) {
+    public JobTestBuilder withId(Long id) {
         this.id = id;
         return this;
     }
 
-    public JobBuilder withTitle(String title) {
+    public JobTestBuilder withTitle(String title) {
         this.title = title;
         return this;
     }
 
-    public JobBuilder withCompany(Company company) {
+    public JobTestBuilder withCompany(Company company) {
         this.company = company;
         return this;
     }
 
-    public JobBuilder withLocation(String location) {
+    public JobTestBuilder withLocation(String location) {
         this.location = location;
         return this;
     }
 
-    public JobBuilder withDomain(JobDomain domain) {
+    public JobTestBuilder withDomain(JobDomain domain) {
         this.domain = domain;
         return this;
     }
 
-    public JobBuilder withDescription(String description) {
+    public JobTestBuilder withDescription(String description) {
         this.description = description;
         return this;
     }
 
-    public JobBuilder withProfile(String profile) {
+    public JobTestBuilder withProfile(String profile) {
         this.profile = profile;
         return this;
     }
 
-    public JobBuilder withOffer(String offer) {
+    public JobTestBuilder withOffer(String offer) {
         this.offer = offer;
         return this;
     }
 
-    public JobBuilder withExtraInformation(String extraInformation) {
+    public JobTestBuilder withExtraInformation(String extraInformation) {
         this.extraInformation = extraInformation;
         return this;
     }
 
-    public JobBuilder withNumberOfPositions(Integer numberOfPositions) {
+    public JobTestBuilder withNumberOfPositions(Integer numberOfPositions) {
         this.numberOfPositions = numberOfPositions;
         return this;
     }
 
-    public JobBuilder withMinYearsOfExperience(Integer minYearsOfExperience) {
+    public JobTestBuilder withMinYearsOfExperience(Integer minYearsOfExperience) {
         this.minYearsOfExperience = minYearsOfExperience;
         return this;
     }
 
-    public JobBuilder withCareerLevel(CareerLevel careerLevel) {
+    public JobTestBuilder withCareerLevel(CareerLevel careerLevel) {
         this.careerLevel = careerLevel;
         return this;
     }
 
-    public JobBuilder withSalaryFrom(Integer salaryFrom) {
+    public JobTestBuilder withSalaryFrom(Integer salaryFrom) {
         this.salaryFrom = salaryFrom;
         return this;
     }
 
-    public JobBuilder withSalaryTo(Integer salaryTo) {
+    public JobTestBuilder withSalaryTo(Integer salaryTo) {
         this.salaryTo = salaryTo;
         return this;
     }
 
-    public JobBuilder withCreatedAt(Date createdAt) {
+    public JobTestBuilder withCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
         return this;
     }
 
-    public JobBuilder withCreatedBy(String createdBy) {
+    public JobTestBuilder withCreatedBy(String createdBy) {
         this.createdBy = createdBy;
         return this;
     }
 
-    public JobBuilder withValidFrom(Date validFrom) {
+    public JobTestBuilder withValidFrom(Date validFrom) {
         this.validFrom = validFrom;
         return this;
     }
 
-    public JobBuilder withValidUntil(Date validUntil) {
+    public JobTestBuilder withValidUntil(Date validUntil) {
         this.validUntil = validUntil;
         return this;
     }
 
-    public JobBuilder withState(JobState state) {
+    public JobTestBuilder withState(JobState state) {
         this.state = state;
         return this;
     }

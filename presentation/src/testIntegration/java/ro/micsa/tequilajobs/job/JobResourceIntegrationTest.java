@@ -13,7 +13,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static ro.micsa.tequilajobs.domain.builder.JobBuilder.aJob;
+import static ro.micsa.tequilajobs.repository.builder.JobTestBuilder.aJob;
 
 public class JobResourceIntegrationTest extends IntegrationTestCase{
 

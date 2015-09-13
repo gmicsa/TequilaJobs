@@ -23,17 +23,17 @@ subprojects {
         maven { url "http://repository.jboss.org/nexus/content/groups/public/" }
     }
 
-    publishing {
-        repositories {
-            maven {
-                url "http://nexus.cegeka.be/nexus/content/repositories/cd-setup-releases/"
-                credentials {
-                    username = nexusUser
-                    password = nexusPassword
-                }
-            }
-        }
-    }
+//    publishing {
+//        repositories {
+//            maven {
+//                url "http://nexus.cegeka.be/nexus/content/repositories/cd-setup-releases/"
+//                credentials {
+//                    username = ''
+//                    password = ''
+//                }
+//            }
+//        }
+//    }
 
     test {
         exclude 'ro/micsa/**/*TestBuilder*'
